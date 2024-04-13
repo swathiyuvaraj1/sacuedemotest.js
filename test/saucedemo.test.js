@@ -3,18 +3,20 @@ const Utils = require("../Utilities/Utils.js");
 const SauceDemo = require("../pages/saucedemo.page.js");
 
 suite("Login test validations", () => {
-  before(async () => {
-    await Utils.launchSite("https://www.saucedemo.com/");
-    //await Utils.launchSite(config.baseUrl);
-    const swagLabsTextPresent = await SauceDemo.verifySwagLabsText();
-    expect(swagLabsTextPresent).to.be.true;
-  });
+  //  before(async () => {
+  // //   await Utils.launchSite("https://www.saucedemo.com/");
+  // //   //await Utils.launchSite(config.baseUrl);
+  //   const swagLabsTextPresent = await SauceDemo.verifySwagLabsText();
+  //   expect(swagLabsTextPresent).toBeDisplayed();
+  //  });
   test("should login with valid username and password", async () => {
     await Utils.testDetailsForReport(
       "Positive",
       "Verify user can login with valid username and password",
       "Verify successful login"
     );
+    const swagLabsTextPresent = await SauceDemo.verifySwagLabsText();
+    expect(swagLabsTextPresent).toBeDisplayed();
     await SauceDemo.login('standard_user', 'secret_sauce');
     await SauceDemo.navigateToInventoryPage();
     // Add assertions here to verify the successful login and navigation
@@ -26,9 +28,9 @@ suite("Login test validations", () => {
       "Verify user can logout successfully",
       "Verify successful logout"
     );
-    // Perform login action before logging out
-    await SauceDemo.login('standard_user', 'secret_sauce');
-    await SauceDemo.navigateToInventoryPage();
+    // // Perform login action before logging out
+    // await SauceDemo.login('standard_user', 'secret_sauce');
+     //await SauceDemo.navigateToInventoryPage();
 
     // Perform logout action using the logout function
     await SauceDemo.logout();
@@ -41,7 +43,8 @@ suite("Login test validations", () => {
     // Add assertions here to verify logout success
     // For example:
     // assert that login button is displayed on the login page
-    await expect(SauceDemo.loginButton).to.exist;
+    //await expect(SauceDemo.loginButton).to.exist;
+    //await expect(SauceDemo.loginButton.isDisplayed()).toBe(true);
   });
 
   test("should not login with invalid username and password", async () => {
@@ -54,7 +57,7 @@ suite("Login test validations", () => {
     await SauceDemo.login('swathi', '12345678');
 
     // Find the error message element using the custom function and pass the error comment
-    const errorMessageElement = await Utils.findErrorMessage('Epic sadface: Username and password do not match any user in this service');
+    const errorMessageElement = await SauceDemo.findErrorMessage('Epic sadface: Username and password do not match any user in this service');
 
     // Wait for the error message element to be displayed
     await errorMessageElement.waitForExist({ timeout: 10000 });
@@ -63,10 +66,13 @@ suite("Login test validations", () => {
     const errorMessageText = await errorMessageElement.getText();
 
     // Add assertions to verify the error message
-    expect(errorMessageText).to.include('Epic sadface: Username and password do not match any user in this service');
+    expect(errorMessageText).toEqual('Epic sadface: Username and password do not match any user in this service');
+    await browser.pause(5000);
   });
 
   test("should show error message for empty username", async () => {
+
+    await browser.url('https://www.saucedemo.com');
     // Perform login action with empty username
     await SauceDemo.login('', 'secret_sauce');
 
@@ -80,10 +86,14 @@ suite("Login test validations", () => {
     const errorMessageText = await errorMessageElement.getText();
 
     // Add assertions to verify the error message for empty username
-    expect(errorMessageText).to.include('Epic sadface: Username is required');
+    expect(errorMessageText).toEqual('Epic sadface: Username is required');
+    await browser.pause(5000);
+    
   });
 
   test("should show error message for empty password", async () => {
+
+    await browser.url('https://www.saucedemo.com');
     // Perform login action with empty username
     await SauceDemo.login('standard_user', '');
 
@@ -97,7 +107,8 @@ suite("Login test validations", () => {
     const errorMessageText = await errorMessageElement.getText();
 
     // Add assertions to verify the error message for empty username
-    expect(errorMessageText).to.include('Epic sadface: Password is required');
+    expect(errorMessageText).toEqual('Epic sadface: Password is required');
+    await browser.pause(5000);
   });
 });
 

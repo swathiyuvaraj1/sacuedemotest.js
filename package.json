@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run ./wdio.conf.js",
-    "logintest": "npx wdio wdio.conf.js --suite logintest"
+    "logintest": "npx wdio wdio.conf.js --suite logintest",
+    "saucedemo": "npx wdio wdio.conf.js --suite saucedemo"
   },
   "devDependencies": {
     "@wdio/allure-reporter": "^8.27.0",
@@ -16,8 +17,9 @@
     "@wdio/spec-reporter": "^8.0.8",
     "allure-commandline": "^2.20.1",
     "axios": "^1.2.2",
-    "chromedriver": "^112.0.0",
+    "chromedriver": "^123.0.0",
     "dotenv": "^16.0.3",
+    "mocha": "^10.4.0",
     "wdio-chromedriver-service": "^8.0.1",
     "wdio-docker-service": "^3.2.1",
     "wdio-intercept-service": "^4.3.1"

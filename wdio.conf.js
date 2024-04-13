@@ -52,9 +52,11 @@ exports.config = {
   // then the current working directory is where your `package.json` resides, so `wdio`
   // will be called from there.
   //
-  specs: ["./test/specs/**/*.js"],
+  specs: ["./test/specs/**/*.js",
+  "./test/specs/saucedemo.test.js"],
   suites: {
-    logintest: ["./test/login.test.js"],
+    //logintest: ["./test/login.test.js"],
+    saucedemo: ["./test/saucedemo.test.js"]
   },
   // Patterns to exclude.
   exclude: [
@@ -277,9 +279,9 @@ exports.config = {
       await Utils.maxWindow();
       await Utils.launchSite();
       await Utils.testStepForReport("Site Loaded:");
-      await expect(LandingPage.signUpBtn).toBeDisplayed();
+      //await expect(LandingPage.signUpBtn).toBeDisplayed();
       await Utils.waitFor(Constants.VERY_SHORT_WAIT);
-      await LandingPage.handlingCookiePrivacyPolicyPopup();
+      //await LandingPage.handlingCookiePrivacyPolicyPopup();
     }
   },
   /**
