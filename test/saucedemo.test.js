@@ -95,4 +95,3 @@ suite("Login test validations", () => {
     await browser.pause(5000);
   });
 });
-
