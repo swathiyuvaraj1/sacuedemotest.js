@@ -1,3 +1,5 @@
+const config = require('../configurations/config.js');
+
 class SauceDemo {
     get usernameInput() {
         return $("//input[@id='user-name']");

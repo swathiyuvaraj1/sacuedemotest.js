@@ -16,7 +16,7 @@ suite("Login test validations", () => {
       "Verify successful login"
     );
     await SauceDemo.login('standard_user', 'secret_sauce');
-    await navigateToInventoryPage();
+    await SauceDemo.navigateToInventoryPage();
     // Add assertions here to verify the successful login and navigation
   });
 
