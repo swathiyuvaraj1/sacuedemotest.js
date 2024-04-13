@@ -1,9 +1,3 @@
-/***
- * All Test configuration data like below can be kept here & from here we can pass the
- * values/refer to multiple tests and execute tests based on the value
- * Sample values as below:
- * ***/
-
 module.exports = {
   dockerService: process.env.DOCKER_SERVICE,
   buildId: process.env.BUILD,
@@ -17,4 +11,11 @@ module.exports = {
   pwdMismatch: "mismatch",
   invalidEmail: "test.user.com",
   validEmail: "test@user.com",
+
+  getCredentials() {
+    return {
+      username: this.loginEmailId,
+      password: this.loginPassword
+    };
+  }
 };

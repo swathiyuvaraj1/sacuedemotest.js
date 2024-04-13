@@ -3,9 +3,9 @@
 const Config = require("./configurations/config.js");
 const Utils = require("./Utilities/Utils.js");
 const Constants = require("./configurations/constants.js");
-const LoginPage = require("./pages/login.page.js");
+//const LoginPage = require("./pages/login.page.js");
 const LandingPage = require("./pages/landing.page.js");
-const HomePage = require("./pages/home.page");
+// const HomePage = require("./pages/home.page");
 const path = require("node:path");
 const Dotenv = require("dotenv");
 Dotenv.config();
