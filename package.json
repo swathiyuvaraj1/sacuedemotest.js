@@ -1,23 +1,13 @@
 {
-  "name": "wdio_base",
+  "name": "wdio-test",
   "version": "1.0.0",
-  "description": "WebdriverIO Javascript Mocha framework (TDD)",
+  "description": "WebdriverIO Javascript Mocha framework",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "wdio": "wdio run ./wdio.conf.js",
     "logintest": "npx wdio wdio.conf.js --suite logintest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/techconative/wdio_base.git"
-  },
-  "author": "TechConative",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/techconative/wdio_base/issues"
-  },
-  "homepage": "https://github.com/techconative/wdio_base#readme",
   "devDependencies": {
     "@wdio/allure-reporter": "^7.26.0",
     "@wdio/cli": "^8.0.9",

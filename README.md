@@ -64,24 +64,6 @@ From the terminal of `wdio_base`, run the below cmds
 
 If we get allure not found error, install [Allure](https://www.programsbuzz.com/article/how-install-allure-windows) to your machine
 
----
-
-### Steps to Run test (Docker)
-
-After installing docker, from the terminal of `wdio_base`,
-
-    1) Run the below cmd
-        'SITE_IMAGE=d442cdb4f03e SITE_URL=siteURL SUITE_NAME=logintest docker-compose up'
-            - SITE_IMAGE - Pass the docker image id
-            - SITE_URL - Pass the site url, if no value takes the default value as in file
-            - SUITE_NAME - Pass the test suite to execute
-
-    2) After, test execution down the docker services
-        'SITE_IMAGE=d442cdb4f03e SITE_URL=siteURL SUITE_NAME=logintest docker-compose down'
-
-    3) We can also remove stopped services by
-        'SITE_IMAGE=d442cdb4f03e SITE_URL=siteURL SUITE_NAME=logintest docker-compose rm'
-
 ### Test Flow across file/folder in framework
 
 ![wdio-test-flow.png](./wdio-test-flow.png)
